@@ -19,8 +19,7 @@ const updetaUI = (city)=>{
     
 
     weatherIcon.src = `https://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`;
-    weatherIcon.alt = `${city.weather[0].icon} icons`
-    console.log(city.main);
+    weatherIcon.alt = `${city.weather[0].icon} icons`;    
 }
 
 
@@ -34,8 +33,7 @@ const getWeather = async (city)=>{
 // change form
 changeLocation.addEventListener('submit', (e)=>{
     e.preventDefault();
-    let cityName = changeLocation.city.value.trim();   
-    console.log(cityName);
+    let cityName = changeLocation.city.value.trim();       
     changeLocation.reset();
     getWeather(cityName).then(data => updetaUI(data));
 })
