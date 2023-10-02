@@ -2,7 +2,19 @@ const changeLocation = document.getElementById('change-location')
 const card = document.getElementById('card')
 const details = document.getElementById('details')
 const weatherIcon = document.getElementById('weather-icon')
-const overlay = document.getElementById('overlay')
+const overlay = document.getElementById('overlay');
+
+changeLocation.city.focus();
+
+
+// loading functions 
+function toggleLoading(recp){
+    if(recp){
+        overlay.classList.remove('d-none')
+    }else{
+        overlay.classList.add('d-none')
+    }
+}
 
 const updetaUI = (city)=>{
     details.innerHTML = `
@@ -30,6 +42,7 @@ const getWeather = async (city)=>{
     let data = await getData(city);
     return data;
 }
+
 // change form
 changeLocation.addEventListener('submit', (e)=>{
     e.preventDefault();
